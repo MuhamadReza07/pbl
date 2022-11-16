@@ -11,9 +11,9 @@
                         alt="logo"></a>
             </div>
         </div>
-        {{-- <div class="text-center">
+         <div class="text-center">
             <h5>KasirKite</h5>
-        </div> --}}
+        </div> 
     </div>
 
     <div class="sidebar-inner slimscrollleft">

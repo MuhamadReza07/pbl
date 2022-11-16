@@ -106,17 +106,8 @@
     <script src="{{ url('/') }}/assets/plugins/datatables/vfs_fonts.js"></script>
     <script src="{{ url('/') }}/assets/plugins/datatables/buttons.html5.min.js"></script>
     <script src="{{ url('/') }}/assets/plugins/datatables/buttons.print.min.js"></script>
-    <script src="{{ url('/') }}/assets/plugins/datatables/buttons.colVis.min.js"></script>
+    <script src="{{ url('/') }}/assets/plugins/datatables/buttons.colVis.min.js"></script> -->
 
-    <script src="{{ url('/') }}/assets/plugins/tiny-editable/mindmup-editabletable.js"></script>
-    <script src="{{ url('/') }}/assets/plugins/tiny-editable/numeric-input-example.js"></script>
-
-    <!-- App js -->
-    <script src="{{ url('/') }}/assets/js/app.js"></script>
-
-    <script>
-        $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
-    </script>
 
 </body>
 

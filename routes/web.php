@@ -53,6 +53,8 @@ Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 Route::prefix('admin')->group(function(){
     Route::resource('beranda', HomeController::class);
     Route::prefix('master-data')->group(function(){
+        Route::get('barang', [BarangController::class, 'index']);
+        // Route::post('tambah-barang', [BarangController::class, 'store']);
         Route::resource('barang', BarangController::class);
         Route::resource('kategori', KategoriController::class);
         Route::resource('supplier', SupplierController::class);
@@ -64,3 +66,5 @@ Route::prefix('admin')->group(function(){
 Route::prefix('kasir')->group(function(){
     Route::get('main', [BerandaController::class, 'showBeranda']);
 });
+
+ 
