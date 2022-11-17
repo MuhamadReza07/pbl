@@ -53,7 +53,7 @@
                                                         class="form-control   @error('username')
                                                     is-invalid
                                                 @enderror"
-                                                        type="text" placeholder="Username" name="username">
+                                                        type="text" placeholder="Username" name="username" require>
                                                 </div>
                                                 @error('username')
                                                     <div class="invalid-feedback">
@@ -68,7 +68,7 @@
                                                         class="form-control  @error('password')
                                                     is-invalid
                                                 @enderror"
-                                                        type="password" placeholder="Password" name="password">
+                                                        type="password" placeholder="Password" name="password" require>
                                                 </div>
                                                 @error('password')
                                                     <div class="invalid-feedback">

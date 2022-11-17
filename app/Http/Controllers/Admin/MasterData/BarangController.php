@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\MasterData;
 
 use App\Models\Barang;
+use App\Models\Kategori;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,21 +12,24 @@ class BarangController extends Controller
     function index()
     {
         $data['list_barang'] = Barang::all();
+        $data['list_kategori'] = Kategori::all();
         return view('admin.master-data.barang.index', $data);
     }
     function create()
     {
-        return view('admin.master-data.barang.create');
+        $data['list_kategori'] = Kategori::all();
+        return view('admin.master-data.barang.create', $data);
     }
     public function store(Request $request)
     {
+        $data['list_kategori'] = Kategori::all();
         $request->validate([
             'nama_barang' => 'required|max:255',
             'kode_barang' => 'required|unique:barang',
             'harga_dasar' => 'required',
             'harga_jual' => 'required',
             'stok' => 'required',
-            'kategori' => 'required'
+            'id_kategori' => 'required'
         ]);
         $barang = new Barang;
         $barang->nama_barang = request('nama_barang');
@@ -42,6 +46,7 @@ class BarangController extends Controller
     function edit(Barang $barang)
     {
         $data['barang'] = $barang;
+        $data['list_kategori'] = Kategori::all();
         return view('admin.master-data.barang.edit', $data);
     }
     function update(Barang $barang)
@@ -54,8 +59,8 @@ class BarangController extends Controller
         $barang->stok = request('stok');
         $barang->kategori = request('kategori');
         $barang->save();
-
-        return redirect('admin/master-data/barang')->with('success', 'Data Berhasil Diupdate');
+        $data['list_kategori'] = Kategori::all();
+        return redirect('admin/master-data/barang', $data)->with('success', 'Data Berhasil Diupdate');
     }
     function destroy(Barang $barang)
     {
