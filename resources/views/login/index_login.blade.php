@@ -10,7 +10,7 @@
     <meta content="ThemeDesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="{{ url('/') }}/assets/images/favicon.ico">
+     <link rel="shortcut icon" href="{{ url('/') }}/assets/images/kasir.png">
 
     <link href="{{ url('/') }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="{{ url('/') }}/assets/css/icons.css" rel="stylesheet" type="text/css">

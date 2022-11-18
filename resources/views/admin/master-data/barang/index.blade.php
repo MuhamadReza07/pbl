@@ -16,6 +16,7 @@
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Kategori</th>
+                                    <th>Tgl Input</th>
                                     <th>Harga Dasar(Rp)</th>
                                     <th>Harga Jual(Rp)</th>
                                     <th>Stok</th>
@@ -29,6 +30,7 @@
                                             <td>{{ $barang->kode_barang }}</td>
                                             <td>{{ $barang->nama_barang }}</td>
                                             <td>{{ $barang->kategori }}</td>
+                                            <td>{{ $barang->created_at }}</td>
                                             <td>{{ $barang->harga_dasar }}</td>
                                             <td>{{ $barang->harga_jual }}</td>
                                             <td>{{ $barang->stok }}</td>
@@ -105,7 +107,7 @@
                                     <label class="control-label">Kategori Barang </label>
 
                                     <select class="form-control" name="id_kategori" id="id_kategori">
-                                        <option value="{{ $barang->kategori }}">Pilih Kategori</option>
+                                        <option value="">Pilih Kategori</option>
                                         @foreach ($list_kategori as $kategori)
                                             <option value="{{ $kategori->id_kategori }}">{{ $kategori->kategori }}
                                             </option>

@@ -59,8 +59,8 @@ class BarangController extends Controller
         $barang->stok = request('stok');
         $barang->kategori = request('kategori');
         $barang->save();
-        $data['list_kategori'] = Kategori::all();
-        return redirect('admin/master-data/barang', $data)->with('success', 'Data Berhasil Diupdate');
+        
+        return redirect('admin/master-data/barang' )->with('success', 'Data Berhasil Diupdate');
     }
     function destroy(Barang $barang)
     {

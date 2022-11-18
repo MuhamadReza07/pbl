@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\MasterData\SupplierController;
 use App\Http\Controllers\Kasir\BerandaController; 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\admin\transaksi\PembelianController;
+use App\Http\Controllers\admin\transaksi\PembelianDetailController;
 use App\Http\Controllers\Admin\transaksi\PenjualanController;
 use GuzzleHttp\Middleware;
 /*
@@ -60,7 +62,10 @@ Route::prefix('admin')->group(function(){
         Route::resource('supplier', SupplierController::class);
     });
     Route::prefix('transaksi')->group(function(){
-        Route::resource('penjualan', PenjualanController::class);});
+        Route::resource('penjualan', PenjualanController::class);
+        Route::resource('pembelian', PembelianController::class);
+    });
+        
 });
 //kasir
 Route::prefix('kasir')->group(function(){

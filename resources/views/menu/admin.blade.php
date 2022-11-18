@@ -23,7 +23,7 @@
                     class="mdi mdi-chevron-right"></i></span></a>
         <ul class="list-unstyled">
             <li><a href="{{ url('admin/transaksi/penjualan') }}">Penjualan</a></li>
-            <li><a href="advanced-rating.html">Pembelian</a></li>
+            <li><a href="{{ url('admin/transaksi/pembelian') }}">Pembelian</a></li>
 
         </ul>
     </li>

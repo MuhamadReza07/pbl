@@ -23,19 +23,13 @@
                                     value="{{ $barang->kode_barang }}">
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Kategori Barang </label>
+                                <div class="form-group">
+                                    <label class="control-label">Kategori</label>
+                                    <input type="text" class="form-control" name="kategori"
+                                        value="{{ $barang->kategori }}">
+                                </div>
 
-                                <select class="form-control" name="id_kategori" id="id_kategori">
-                                    <option value="{{ $kategori->id_kategori }}">{{ $kategori->kategori }}
-                                    </option>
-                                    </option>
-                                    @foreach ($list_kategori as $kategori)
-                                        <option value="{{ $kategori->id_kategori }}">{{ $kategori->kategori }}
-                                        </option>
-                                    @endforeach
-                                </select>
                             </div>
-
 
 
                             <div class="row">
