@@ -27,14 +27,20 @@
 
         </ul>
     </li>
-
-    <li class="has_sub">
-        <a href="#" class="waves-effect"><i class="dripicons-document"></i>
-            <span> Laporan</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-        <ul class="list-unstyled">
-            <li><a href="form-elements.html">Penjualan</a></li>
-            <li><a href="form-validation.html">Pembelian</a></li>
-
-        </ul>
+    <li class="menu-title">Report</li>
+    <li>
+        <a href="#">
+            <i class="dripicons-meter"></i> <span> Laporan <span
+                    class="badge badge-success badge-pill float-right"></span></span></a>
+    </li>
+    <li class="menu-title">Sistem</li>
+    <li>
+        <a href="#">
+            <i class="fa fa-users"></i> <span> User <span
+                    class="badge badge-success badge-pill float-right"></span></span></a>
+    </li>
+    <li>
+        <a href="#">
+                    class="badge badge-success badge-pill float-right"></span></span></a>
     </li>
 </ul>

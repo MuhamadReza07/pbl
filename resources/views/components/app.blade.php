@@ -111,7 +111,7 @@
     <script src="{{ url('/') }}/assets/plugins/datatables/buttons.html5.min.js"></script>
     <script src="{{ url('/') }}/assets/plugins/datatables/buttons.print.min.js"></script>
     <script src="{{ url('/') }}/assets/plugins/datatables/buttons.colVis.min.js"></script> -->
-
+    @stack('scripts')
 
 </body>
 

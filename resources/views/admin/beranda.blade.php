@@ -8,9 +8,9 @@
                         <i class="mdi mdi-cube-outline float-right mb-0"></i>
                     </div>
                     <h6 class="text-uppercase mb-0">Jumlah Barang</h6>
-                    <h1>{{ $totalBarang}}</h1>
+                    <h1>{{ $totalBarang }}</h1>
                 </div>
-               
+
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
@@ -20,12 +20,12 @@
                         <i class="mdi mdi-account-network float-right mb-0"></i>
                     </div>
                     <h6 class="text-uppercase mb-0">Supplier</h6>
-                    <h1>{{ $totalSupplier}}</h1>
+                    <h1>{{ $totalSupplier }}</h1>
                 </div>
-               
+
             </div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        {{-- <div class="col-xl-3 col-md-6">
             <div class="card mini-stat m-b-30">
                 <div class="p-3 bg-primary text-white">
                     <div class="mini-stat-icon">
@@ -47,6 +47,6 @@
                 </div>
                 
             </div>
-        </div>
+        </div> --}}
     </div>
     </x-modu.admin>

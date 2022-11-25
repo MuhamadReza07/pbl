@@ -63,7 +63,11 @@ Route::prefix('admin')->group(function(){
     });
     Route::prefix('transaksi')->group(function(){
         Route::resource('penjualan', PenjualanController::class);
-        Route::resource('pembelian', PembelianController::class);
+        Route::resource('pembelian', PembelianController::class)->except('create');
+        Route::get('/pembelian/{$id_supplier}/create', [PembelianController::class,'create']);
+        Route::post('pembelian_detail/filter', [PembelianDetailController::class, 'filter']);
+        Route::get('/pembelian/data', [PembelianController::class,'data']);
+        Route::resource('pembelian_detail', PembelianDetailController::class)->except('create', 'show', 'edit');
     });
         
 });

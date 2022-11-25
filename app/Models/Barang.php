@@ -22,4 +22,7 @@ class Barang extends Model
         return Carbon::parse($this->attributes['created_at'])
         ->translatedFormat(' d F Y');
     }
+    public function pembelianDetail(){
+        return $this->hasMany(PembelianDetailController::class, 'id_pembelian_detail');
+    }
 }
