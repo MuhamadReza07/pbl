@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\MasterData;
 use App\Models\Kategori;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class KategoriController extends Controller
 {
    public function index()
@@ -25,8 +25,8 @@ class KategoriController extends Controller
         $kategori = new kategori;
         $kategori->kategori = request('kategori');
         $kategori->save();
-
-        return redirect('admin/master-data/kategori')->with('success', 'Data Berhasil Ditambahkan');
+        Alert::success('Success', 'Kategori Berhasil Ditambahkan');
+        return redirect('admin/master-data/kategori')->with('success', 'Kategori Berhasil Ditambahkan');
     }
    
     public function edit(Kategori $kategori)
@@ -37,16 +37,14 @@ class KategoriController extends Controller
     public function update(kategori $kategori)
     {
         $kategori->kategori = request('kategori');
-        
-        
         $kategori->save();
-
-        return redirect('admin/master-data/kategori')->with('success', 'Data Berhasil Diupdate');
+        Alert::info('Update', 'Kategori Berhasil Diupdate');
+        return redirect('admin/master-data/kategori')->with('success', 'Kategori Berhasil Diupdate');
     }
     public function destroy(kategori $kategori)
     {
         $kategori->delete();
-
-        return redirect('admin/master-data/kategori')->with('danger', 'Data Berhasil Dihapus');
+        Alert::error('Delete', 'Kategori Berhasil Dihapus');
+        return redirect('admin/master-data/kategori')->with('danger', 'Kategori Berhasil Dihapus');
     }
 }

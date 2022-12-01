@@ -11,7 +11,7 @@
                             <table>
                                 <tr>
                                     <td>Supplier</td>
-                                    <td>:{{ $supplier->nama_supplier }} </td>
+                                    {{-- <td>:{{ $supplier->nama_supplier }} </td> --}}
                                 </tr>
                                 <tr>
                                     <td>Telepon</td>

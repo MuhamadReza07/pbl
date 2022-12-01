@@ -10,11 +10,11 @@
 
 
     <li class="has_sub">
-        <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-broadcast"></i>
+        <a href="#"><i class="fa fas fa-shopping-cart"></i>
             <span> Transaksi</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
         <ul class="list-unstyled">
-            <li><a href="advanced-alertify.html">Penjualan</a></li>
-            <li><a href="advanced-rating.html">Pembelian</a></li>
+            <li><a href="#">Penjualan</a></li>
+            <li><a href="#">Pembelian</a></li>
 
         </ul>
     </li>

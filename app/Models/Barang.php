@@ -25,4 +25,7 @@ class Barang extends Model
     public function pembelianDetail(){
         return $this->hasMany(PembelianDetailController::class, 'id_pembelian_detail');
     }
+    public function penjualan(){
+        return $this->hasMany(PenjualanController::class, 'id_penjualan');
+    }
 }

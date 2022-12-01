@@ -1,4 +1,5 @@
 <x-module.admin menu="menu.admin">
+    @include('sweetalert::alert')
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">

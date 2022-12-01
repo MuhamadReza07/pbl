@@ -6,10 +6,11 @@ use App\Models\Barang;
 use App\Models\Kategori;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BarangController extends Controller
 {
-    function index()
+    function index()  
     {
         $data['list_barang'] = Barang::all();
         $data['list_kategori'] = Kategori::all();
@@ -22,6 +23,7 @@ class BarangController extends Controller
     }
     public function store(Request $request)
     {
+        
         $data['list_kategori'] = Kategori::all();
         $request->validate([
             'nama_barang' => 'required|max:255',
@@ -36,10 +38,11 @@ class BarangController extends Controller
         $barang->kode_barang = request('kode_barang');
         $barang->harga_dasar = request('harga_dasar');
         $barang->harga_jual = request('harga_jual');
+        $barang->id_kategori = request('kategori');
         $barang->stok = request('stok');
         $barang->kategori = request('kategori');
         $barang->save();
-
+        Alert::success('Success', 'Data Berhasil Ditambahkan');
         return redirect('admin/master-data/barang')->with('success', 'Data Berhasil Ditambahkan');
     }
    
@@ -51,7 +54,6 @@ class BarangController extends Controller
     }
     function update(Barang $barang)
     {
-      
         $barang->nama_barang = request('nama_barang');
         $barang->kode_barang = request('kode_barang');
         $barang->harga_dasar = request('harga_dasar');
@@ -59,14 +61,13 @@ class BarangController extends Controller
         $barang->stok = request('stok');
         $barang->kategori = request('kategori');
         $barang->save();
-        
+        Alert::info('Update', 'Data Berhasil Diupdate');
         return redirect('admin/master-data/barang' )->with('success', 'Data Berhasil Diupdate');
     }
     function destroy(Barang $barang)
     {
-  
         $barang->delete();
-
+        Alert::error('Delete', 'Data Berhasil Dihapus');
         return redirect('admin/master-data/barang')->with('danger', 'Data Berhasil Dihapus');
     }
 

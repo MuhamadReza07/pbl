@@ -33,7 +33,7 @@
 
 <body class="fixed-left">
 
-
+    @include('sweetalert::alert')
 
     <!-- Begin page -->
     <div id="wrapper">
@@ -110,7 +110,7 @@
     <script src="{{ url('/') }}/assets/plugins/datatables/vfs_fonts.js"></script>
     <script src="{{ url('/') }}/assets/plugins/datatables/buttons.html5.min.js"></script>
     <script src="{{ url('/') }}/assets/plugins/datatables/buttons.print.min.js"></script>
-    <script src="{{ url('/') }}/assets/plugins/datatables/buttons.colVis.min.js"></script> -->
+    <script src="{{ url('/') }}/assets/plugins/datatables/buttons.colVis.min.js"></script>
     @stack('scripts')
 
 </body>
