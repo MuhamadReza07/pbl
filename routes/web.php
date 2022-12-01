@@ -4,12 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MasterData\BarangController;
 use App\Http\Controllers\Admin\MasterData\KategoriController;
 use App\Http\Controllers\Admin\MasterData\SupplierController;
-use App\Http\Controllers\Kasir\BerandaController; 
+use App\Http\Controllers\Kasir\BerandaController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\admin\transaksi\PembelianController;
 use App\Http\Controllers\admin\transaksi\PembelianDetailController;
 use App\Http\Controllers\Admin\transaksi\PenjualanController;
+use App\Http\Controllers\PegaturanController;
+use App\Models\Pengaturan;
 use GuzzleHttp\Middleware;
 /*
 |--------------------------------------------------------------------------
@@ -42,26 +45,27 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
         Route::get('main', [BerandaController::class, 'showBeranda']);
     });
+    Route::resource('pengaturan', PengaturanController::class);
 });
 
-Route::group(['middleware' => 'auth'], function() {
-   
+Route::group(['middleware' => 'auth'], function () {
 });
 
 
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 //admin
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
+    Route::resource('/user', UserController::class);
     Route::resource('beranda', HomeController::class);
-    Route::prefix('master-data')->group(function(){
+    Route::prefix('master-data')->group(function () {
         Route::get('barang', [BarangController::class, 'index']);
         // Route::post('tambah-barang', [BarangController::class, 'store']);
         Route::resource('barang', BarangController::class);
         Route::resource('kategori', KategoriController::class);
         Route::resource('supplier', SupplierController::class);
     });
-    Route::prefix('transaksi')->group(function(){
+    Route::prefix('transaksi')->group(function () {
         Route::resource('penjualan', PenjualanController::class);
         Route::resource('pembelian', PembelianController::class)->except('create');
         // Route::get('/pembelian/{$id_supplier}/create', [PembelianController::class,'create']);
@@ -79,11 +83,8 @@ Route::prefix('admin')->group(function(){
         Route::resource('/pembelian_detail', PembelianDetailController::class)
             ->except('create', 'show', 'edit');
     });
-        
 });
 //kasir
-Route::prefix('kasir')->group(function(){
+Route::prefix('kasir')->group(function () {
     Route::get('main', [BerandaController::class, 'showBeranda']);
 });
-
- 

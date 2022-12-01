@@ -35,12 +35,12 @@
     </li>
     <li class="menu-title">Sistem</li>
     <li>
-        <a href="#">
+        <a href="{{url('admin/user/index')}}">
             <i class="fa fa-users"></i> <span> User <span
                     class="badge badge-success badge-pill float-right"></span></span></a>
     </li>
     <li>
-        <a href="#">
+        <a href="{{url('pengaturan')}}">
             <i class="fa fa-cogs"></i> <span> Pengaturan <span
                     class="badge badge-success badge-pill float-right"></span></span></a>
     </li>
