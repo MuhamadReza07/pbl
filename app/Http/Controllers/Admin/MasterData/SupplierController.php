@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\MasterData;
 use App\Models\Supplier;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class SupplierController extends Controller
 {
     public function index()
@@ -30,6 +30,7 @@ class SupplierController extends Controller
         $supplier->no_hp = request('no_hp');
         $supplier->alamat_supplier = request('alamat_supplier');
         $supplier->save();
+        Alert::success('Success', 'Data Berhasil Ditambahkan');
         return redirect('admin/master-data/supplier')->with('success', 'Data Berhasil Ditambahkan');
     }
    
@@ -43,15 +44,14 @@ class SupplierController extends Controller
         $supplier->nama_supplier = request('nama_supplier');
         $supplier->no_hp = request('no_hp');
         $supplier->alamat_supplier = request('alamat_supplier');
-        
         $supplier->save();
-
+        Alert::info('Update', 'Data Berhasil Diupdate');
         return redirect('admin/master-data/supplier')->with('success', 'Data Berhasil Diupdate');
     }
     public function destroy(supplier $supplier)
     {
         $supplier->delete();
-
+        Alert::error('Delete', 'Data Berhasil Dihapus');
         return redirect('admin/master-data/supplier')->with('danger', 'Data Berhasil Dihapus');
     }
     
