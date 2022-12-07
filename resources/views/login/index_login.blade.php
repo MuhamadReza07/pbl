@@ -10,7 +10,7 @@
     <meta content="ThemeDesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-     <link rel="shortcut icon" href="{{ url('/') }}/assets/images/kasir.png">
+    <link rel="shortcut icon" href="{{ url('/') }}/assets/images/kasir.png">
 
     <link href="{{ url('/') }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="{{ url('/') }}/assets/css/icons.css" rel="stylesheet" type="text/css">
@@ -50,12 +50,12 @@
                                             <div class="form-group row">
                                                 <div class="col-12">
                                                     <input
-                                                        class="form-control   @error('username')
+                                                        class="form-control   @error('email')
                                                     is-invalid
                                                 @enderror"
-                                                        type="text" placeholder="Username" name="username" require>
+                                                        type="email" placeholder="Email" name="email" require>
                                                 </div>
-                                                @error('username')
+                                                @error('email')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>

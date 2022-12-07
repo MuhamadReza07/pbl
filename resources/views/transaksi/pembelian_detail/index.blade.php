@@ -1,4 +1,4 @@
-<x-module.admin menu="menu.admin">
+<x-module.kasir menu="menu.kasir">
     <div class="container py-4">
 
         <div class="col-sm-12">
@@ -28,7 +28,7 @@
                             <div class="form-group row ">
                                 <label for="kode_barang" class="col-auto">Kode Barang</label>
                                 <div class="col-3">
-                                    <form action="{{ url('admin/transaksi/pembelian_detail/filter') }}" method="post">
+                                    <form action="{{ url('transaksi/pembelian_detail/filter') }}" method="post">
                                         @csrf
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="kode_barang"
@@ -181,4 +181,4 @@
         </div>
 
     </div>
-</x-module.admin>
+    </x-module.admin>

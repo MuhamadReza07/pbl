@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Supplier extends Model
 {
     use HasFactory;
-    protected $primaryKey = "id_supplier";
+    protected $primaryKey = "id";
     public $timestamp = false;
     protected $table = 'supplier';
     const UPDATED_AT = null;

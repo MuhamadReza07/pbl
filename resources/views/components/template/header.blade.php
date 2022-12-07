@@ -11,7 +11,7 @@
         <ul class="list-inline float-right mb-0">
             <li class="list-inline-item dropdown notification-list text-white">
                 @if (Auth::check())
-                    {{ request()->user()->name }}
+                    {{ request()->user()->username }}
                 @else
                     Silahkan Login
                 @endif

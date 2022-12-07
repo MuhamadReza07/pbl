@@ -1,4 +1,5 @@
 <x-module.admin menu="menu.admin">
+    
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-5">
@@ -13,37 +14,34 @@
                             <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap">
                                 <thead class="bg-teal">
                                     <th width="5%">No</th>
-                                   
+
                                     <th>Username</th>
                                     <th>Email</th>
-                                     <th>Aksi</th>
+                                    <th>Aksi</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($list_user as $user)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $user->username }}</td>
-                                        <td>{{ $user->email}}</td>
-                                        
-                                        <td>
-                                            <div class="btn-group">
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $user->username }}</td>
+                                            <td>{{ $user->email }}</td>
 
-                                                <a href="{{ url('admin/user', $user->id) }}/edit"
-                                                    class="btn btn-warning"><i class="fa fa-edit"></i></a>
-                                                @include('components.template.utils.delete', [
-                                                    'url' => url(
-                                                        'admin/user',
-                                                        $user->id
-                                                    ),
-                                                ])
+                                            <td>
+                                                <div class="btn-group">
+
+                                                    <a href="{{ url('admin/user', $user->id) }}/edit"
+                                                        class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                                    @include('components.template.utils.delete', [
+                                                        'url' => url('admin/user', $user->id),
+                                                    ])
 
 
-                                            </div>
+                                                </div>
 
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                    
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
@@ -68,20 +66,6 @@
                         <div class="card-body">
                             <form action="{{ url('admin/user') }}" method="POST">
                                 @csrf
-                           {{-- <div class="form-group">
-                                    <label class="control-label">Nama</label>
-                                    <input type="text"
-                                        class="form-control @error('name')
-                        is-invalid
-                    @enderror"
-                                        name="name" required>
-                                    @error('name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-
-                                </div> --}}
                                 <div class="form-group">
                                     <label class="control-label">Username</label>
                                     <input type="text"
@@ -118,14 +102,14 @@
                                         </div>
                                     @enderror
                                 </div>
-                               
-                                </div>
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
-                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
                 </form>
 
             </div>

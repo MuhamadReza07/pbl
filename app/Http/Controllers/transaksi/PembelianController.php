@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin\transaksi;
+namespace App\Http\Controllers\transaksi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class PembelianController extends Controller
    public function index(){
     $supplier = Supplier::orderBy('nama_supplier')->get();
 
-        return view('admin.transaksi.pembelian.index', compact('supplier'));
+        return view('transaksi.pembelian.index', compact('supplier'));
    }
    public function show($supplier){
         
@@ -23,6 +23,6 @@ class PembelianController extends Controller
    
     $data['supplier'] = $supplier;
     
-    return view('admin/transaksi/pembelian_detail/index', $data);
+    return view('transaksi/pembelian_detail/index', $data);
 }
 }

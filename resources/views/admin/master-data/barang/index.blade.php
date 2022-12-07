@@ -30,7 +30,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $barang->kode_barang }}</td>
                                             <td>{{ $barang->nama_barang }}</td>
-                                            <td>{{ $barang->kategori }}</td>
+                                            <td>{{ $barang->kategori->kategori }}</td>
                                             <td>{{ $barang->created_at }}</td>
                                             <td>{{ $barang->harga_dasar }}</td>
                                             <td>{{ $barang->harga_jual }}</td>
@@ -38,13 +38,10 @@
                                             <td>
                                                 <div class="btn-group">
 
-                                                    <a href="{{ url('admin/master-data/barang', $barang->id_barang) }}/edit"
+                                                    <a href="{{ url('admin/master-data/barang', $barang->id) }}/edit"
                                                         class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                     @include('components.template.utils.delete', [
-                                                        'url' => url(
-                                                            'admin/master-data/barang',
-                                                            $barang->id_barang
-                                                        ),
+                                                        'url' => url('admin/master-data/barang', $barang->id),
                                                     ])
 
 
@@ -110,7 +107,7 @@
                                     <select class="form-control" name="id_kategori" id="id_kategori">
                                         <option value="">Pilih Kategori</option>
                                         @foreach ($list_kategori as $kategori)
-                                            <option value="{{ $kategori->id_kategori }}">{{ $kategori->kategori }}
+                                            <option value="{{ $ketegori }}">{{ $kategori }}
                                             </option>
                                         @endforeach
                                     </select>

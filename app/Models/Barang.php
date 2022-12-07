@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\kategori;
-use App\Http\Controllers\Admin\MasterData\KategoriController;
+use App\Models\Kategori;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -11,11 +10,12 @@ class Barang extends Model
 {
     use HasFactory;
     
-    protected $primaryKey = "id_barang";
+    protected $primaryKey = "id";
     // public $timestamp = false;
+    
     protected $table = 'barang';
     public function kategori(){
-        return $this->belongsTo(KategoriController::class, 'id_kategori');
+        return $this->belongsTo(Kategori::class,'id_kategori');
     }
     public function getCreatedAtAttribute()
     {

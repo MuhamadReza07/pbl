@@ -9,7 +9,7 @@
                         Edit Kategori
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('admin/master-data/kategori', $kategori->id_kategori) }}" method="post">
+                        <form action="{{ url('admin/master-data/kategori', $kategori->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="form-group">

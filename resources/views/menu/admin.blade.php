@@ -22,25 +22,25 @@
             <span> Transaksi</span> <span class="menu-arrow float-right"><i
                     class="mdi mdi-chevron-right"></i></span></a>
         <ul class="list-unstyled">
-            <li><a href="{{ url('admin/transaksi/penjualan') }}">Penjualan</a></li>
-            <li><a href="{{ url('admin/transaksi/pembelian') }}">Pembelian</a></li>
+            <li><a href="{{ url('transaksi/penjualan') }}">Penjualan</a></li>
+            <li><a href="{{ url('transaksi/pembelian') }}">Pembelian</a></li>
 
         </ul>
     </li>
     <li class="menu-title">Report</li>
     <li>
-        <a href="#">
+        <a href="{{ url('admin/laporan') }}">
             <i class="fa fas fa-book"></i> <span> Laporan <span
                     class="badge badge-success badge-pill float-right"></span></span></a>
     </li>
     <li class="menu-title">Sistem</li>
     <li>
-        <a href="{{url('admin/user/index')}}">
+        <a href="{{ url('admin/user') }}">
             <i class="fa fa-users"></i> <span> User <span
                     class="badge badge-success badge-pill float-right"></span></span></a>
     </li>
     <li>
-        <a href="{{url('pengaturan')}}">
+        <a href="{{ url('admin/setting') }}">
             <i class="fa fa-cogs"></i> <span> Pengaturan <span
                     class="badge badge-success badge-pill float-right"></span></span></a>
     </li>

@@ -1,70 +1,53 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-
+namespace App\Http\Controllers\admin;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class UserController extends Controller
 {
-    public function index()
-    {
+    function index(){
         $data['list_user'] = User::all();
         return view('admin.user.index', $data);
     }
-
-    public function create()
-    {
-
+    function create(){
         return view('admin.user.create');
     }
-    public function store(Request $request)
-    {
-
-        // $request->validate([
-        //     'name' => 'required|max:255',
-        //     'username' => 'required|unique:username',
-        //     'email' => 'required',
-        //     'password' => 'required|unique:username',
-
-        // ]);
-        $user = new User;
-        // $user->name = request('name');
-        $user->username = request('username');
-        $user->email = request('email');
-        $user->level = 2;
-        $user->password = bcrypt(request('password'));
+    function store(){
+       $user = new User;
+      
+       $user->username = request('username');
+       $user->email = request('email');
+       $user->password = bcrypt(request('password'));
         $user->save();
-        return redirect('admin/user')->with('success', 'Data Berhasil Ditambahkan');
+        Alert::success('Success', 'Data Berhasil Ditambahkan');  
+       return redirect('admin/user')->with('success', 'Data Berhasil Ditambahkan');
     }
-    public function show()
-    {
-        return view('admin/user');
-    }
-    function edit(User $user)
-    {
+    function show(user $user){
         $data['user'] = $user;
-        return view('admin/user/edit', $data);
+       return view('admin.user.show', $data);
     }
-    function update(User $user)
-    {
-
-        $$user = new User;
-        // $user->name = request('name');
+    function edit(user $user){
+        $data['user'] = $user;
+       return view('admin.user.edit', $data);
+    }
+    function update(user $user){
+      
+       
         $user->username = request('username');
         $user->email = request('email');
-        if (request('password')) $user->password = bcrypt(request('password'));
-        $user->level = 2;
+        if(request('password')) $user->password = bcrypt(request('password'));
+        $user->password = bcrypt(request('password'));
+        Alert::info('Update', 'Data Berhasil Diupdate');
         $user->save();
-
-        return redirect('admin/user')->with('success', 'Data Berhasil Diupdate');
+        return redirect('admin/user')->with('success', 'Data Berhasil Diedit');
     }
-    function destroy(User $user)
-    {
-
+    function destroy(user $user){
         $user->delete();
-
+        Alert::error('Delete', 'Data Berhasil Dihapus');
         return redirect('admin/user')->with('danger', 'Data Berhasil Dihapus');
+    }  
     }
-}
+
+    

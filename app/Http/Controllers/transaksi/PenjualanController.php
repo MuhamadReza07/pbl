@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\transaksi;
+namespace App\Http\Controllers\transaksi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -25,12 +25,12 @@ class PenjualanController extends Controller
         }
         $data['list_barang'] = Barang::all();
         $data['list_penjualan'] = Penjualan::all();
-        return view('admin/transaksi/penjualan/index',  compact('date', 'nomor'), $data);
+        return view('transaksi/penjualan/index',  compact('date', 'nomor'), $data);
         
     }
     public function show(){
         $data['list_barang'] = Barang::all();
         $data['list_penjualan'] = Penjualan::all();
-        return view('admin/transaksi/penjualan', $data);
+        return view('transaksi/penjualan', $data);
     }
 }

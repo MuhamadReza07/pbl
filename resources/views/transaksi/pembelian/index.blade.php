@@ -1,4 +1,4 @@
-<x-module.admin menu="menu.admin">
+<x-module.kasir menu="menu.kasir">
 
     <div class="container">
         <div class="row">
@@ -63,7 +63,7 @@
                                             <td>{{ $item->no_hp }}</td>
                                             <td>{{ $item->alamat_supplier }}</td>
                                             <td>
-                                                <a href="{{ url('admin/transaksi/pembelian', $item->id_supplier) }}"
+                                                <a href="{{ url('transaksi/pembelian', $item->id) }}"
                                                     class="btn btn-success"><i class="fa fa-check-circle"></i> Pilih</a>
                                             </td>
                                         </tr>
@@ -200,4 +200,4 @@
             }
         }
     </script>
-</x-module.admin>
+    </x-module.admin>

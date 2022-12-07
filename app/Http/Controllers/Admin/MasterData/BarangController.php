@@ -21,16 +21,16 @@ class BarangController extends Controller
         $data['list_kategori'] = Kategori::all();
         return view('admin.master-data.barang.create', $data);
     }
-    public function store(Request $request)
+    public function store($request, $kategori)
     {
         
-        $data['list_kategori'] = Kategori::all();
+        $data['kategori'] = $kategori;
         $request->validate([
             'nama_barang' => 'required|max:255',
             'kode_barang' => 'required|unique:barang',
             'harga_dasar' => 'required',
             'harga_jual' => 'required',
-            'stok' => 'required',
+            'stok' => 'required', 
             'id_kategori' => 'required'
         ]);
         $barang = new Barang;
@@ -38,12 +38,12 @@ class BarangController extends Controller
         $barang->kode_barang = request('kode_barang');
         $barang->harga_dasar = request('harga_dasar');
         $barang->harga_jual = request('harga_jual');
-        $barang->id_kategori = request('kategori');
+        $barang->id_kategori = request('id_kategori');
         $barang->stok = request('stok');
         $barang->kategori = request('kategori');
         $barang->save();
         Alert::success('Success', 'Data Berhasil Ditambahkan');
-        return redirect('admin/master-data/barang')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect('admin/master-data/barang', $data)->with('success', 'Data Berhasil Ditambahkan');
     }
    
     function edit(Barang $barang)
@@ -52,12 +52,18 @@ class BarangController extends Controller
         $data['list_kategori'] = Kategori::all();
         return view('admin.master-data.barang.edit', $data);
     }
+    function show(Kategori $kategori){
+     
+        $data['kategori'] = $kategori;
+        return view('admin/master-data/barang', $data);
+    }
     function update(Barang $barang)
     {
         $barang->nama_barang = request('nama_barang');
         $barang->kode_barang = request('kode_barang');
         $barang->harga_dasar = request('harga_dasar');
         $barang->harga_jual = request('harga_jual');
+        $barang->id_kategori = request('id_kategori');
         $barang->stok = request('stok');
         $barang->kategori = request('kategori');
         $barang->save();

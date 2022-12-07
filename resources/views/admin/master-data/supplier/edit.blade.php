@@ -9,7 +9,7 @@
                         Edit Data Supplier
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('admin/master-data/supplier', $supplier->id_supplier) }}" method="post">
+                        <form action="{{ url('admin/master-data/supplier', $supplier->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="form-group">

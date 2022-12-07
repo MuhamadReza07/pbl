@@ -25,15 +25,15 @@ class LoginController extends Controller
     {
         $request->validate(
             [
-                'username' => 'required',
+                'email' => 'required',
                 'password' => 'required',
             ],
             [
-                'username.required' => 'Username tidak boleh kosong',
+                'email.required' => 'Username tidak boleh kosong',
             ]
         );
 
-        $kredensial = $request->only('username', 'password');
+        $kredensial = $request->only('email', 'password');
 
         if (Auth::attempt($kredensial)) {
             $request->session()->regenerate();
@@ -50,8 +50,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'Maaf username atau password anda salah'
-        ])->onlyInput('username');
+            'email' => 'Maaf email atau password anda salah'
+        ])->onlyInput('email');
     }
 
     public function logout(Request $request)

@@ -18,6 +18,8 @@
                                     <th>No Hp</th>
                                     <th>Alamat</th>
                                     <th>Aksi</th>
+
+
                                 </thead>
                                 <tbody>
 
@@ -30,13 +32,10 @@
                                             <td>
                                                 <div class="btn-group">
 
-                                                    <a href="{{ url('admin/master-data/supplier', $supplier->id_supplier) }}/edit"
+                                                    <a href="{{ url('admin/master-data/supplier', $supplier->id) }}/edit"
                                                         class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                     @include('components.template.utils.delete', [
-                                                        'url' => url(
-                                                            'admin/master-data/supplier',
-                                                            $supplier->id_supplier
-                                                        ),
+                                                        'url' => url('admin/master-data/supplier', $supplier->id),
                                                     ])
                                                 </div>
                                             </td>

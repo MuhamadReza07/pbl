@@ -26,13 +26,10 @@
                                             <td>
                                                 <div class="btn-group">
 
-                                                    <a href="{{ url('admin/master-data/kategori', $kategori->id_kategori) }}/edit"
+                                                    <a href="{{ url('admin/master-data/kategori', $kategori->id) }}/edit"
                                                         class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                                     @include('components.template.utils.delete', [
-                                                        'url' => url(
-                                                            'admin/master-data/kategori',
-                                                            $kategori->id_kategori
-                                                        ),
+                                                        'url' => url('admin/master-data/kategori', $kategori->id),
                                                     ])
 
                                                 </div>
