@@ -58,14 +58,14 @@ Route::prefix('admin')->group(function () {
     //pengaturan
     Route::resource('setting', SettingController::class);
     Route::get('/setting', [SettingController::class, 'index']);
-        Route::get('/setting/first', [SettingController::class, 'show']);
-        Route::post('/setting', [SettingController::class, 'update']);
+    Route::get('/setting/first', [SettingController::class, 'show']);
+    Route::post('/setting', [SettingController::class, 'update']);
     //user
     Route::get('user/edit/{$id}', [UserController::class, 'edit']);
     Route::resource('user', UserController::class);
     //laporan
     Route::resource('laporan', LaporanController::class);
-    
+
     Route::resource('beranda', HomeController::class);
     Route::prefix('master-data')->group(function () {
         Route::get('barang', [BarangController::class, 'index']);
@@ -74,8 +74,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('kategori', KategoriController::class);
         Route::resource('supplier', SupplierController::class);
     });
-  
-    });
+});
 
 //kasir
 Route::prefix('kasir')->group(function () {
@@ -99,4 +98,5 @@ Route::prefix('transaksi')->group(function () {
     Route::get('/pembelian_detail/{id}/data', [PembelianDetailController::class, 'data'])->name('admin.transaksi.pembelian_detail.data');
     Route::get('/pembelian_detail/loadform/{diskon}/{total}', [PembelianDetailController::class, 'loadForm'])->name('admin.transaksi.pembelian_detail.load_form');
     Route::resource('/pembelian_detail', PembelianDetailController::class)
-        ->except('create', 'show', 'edit');});
+        ->except('create', 'show', 'edit');
+});

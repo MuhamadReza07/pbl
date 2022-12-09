@@ -9,6 +9,10 @@
                     <h5>Pengaturan</h5>
                 </div>
                 <div class="card-body">
+                    <div class="alert alert-info alert-dismissible" style="display: none;   ">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <i class="icon fa fa-check"></i> Perubahan berhasil disimpan
+                    </div>
                     <div class="mb-3 row">
                         <label for="nama_perusahaan" class="col-sm-2 col-form-label">Nama Toko</label>
                         <div class="col-lg-6">
@@ -37,3 +41,61 @@
     </div>
 
 </x-module.admin>
+
+@push('scripts')
+    <script>
+        $(function() {
+            showData();
+            $('form-setting').validator().on('submit', function() {
+                if (!e.preventDefault()) {
+                    $.ajax({
+                            url: $('.form-setting').attr('action'),
+                            type: $('.form-setting').attr('method'),
+                            data: new FormData($('.form-setting')[0]),
+                            async: false,
+                            processData: false,
+                            ContentType: false
+                        })
+
+                        .done(response => {
+                            showData();
+                            $('.alert').fadeOut();
+
+                        })
+                        .fail(errors => {
+                            alert('Tidak dapat menyimpan data');
+                            return;
+
+                        });
+
+                }
+            });
+
+        });
+
+        // function showData() {
+        //     $.get('{{ url('admin/setting/show') }}')
+        //     .done(response => {
+        //         $('[name=nama_perusahaan]').val(response.nama_perusahaan);
+        //         $('[name=telepon]').val(response.telepon);
+        //         $('[name=alamat]').val(response.alamat);
+        //     })
+        //     .fail(errors => {
+        //         alert('Tidak dapat menampilkan data');
+        //     })
+        // }
+
+        function showData() {
+            $.get('{{ url('admin/setting/show') }}')
+                .done(response => {
+                    $('[name=nama_perusahaan]').val(response.nama_perusahaan);
+                    $('[name=telepon]').val(response.telepon);
+                    $('[name=alamat]').val(response.alamat);
+                })
+                .fail(errors => {
+                    alert('Tidak dapat menampilkan data');
+                    return;
+                });
+        }
+    </script>
+@endpush

@@ -13,6 +13,9 @@
                         <div class="table-responsive">
                             <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap">
                                 <thead class="bg-teal">
+                                    <th width="5%">
+                                        <input type="checkbox" name="select_all" id="select_all">
+                                    </th>
                                     <th>No</th>
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
@@ -27,10 +30,12 @@
 
                                     @foreach ($list_barang as $barang)
                                         <tr>
+                                            <td> <input type="checkbox" name="select_all" id="select_all"></td>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $barang->kode_barang }}</td>
                                             <td>{{ $barang->nama_barang }}</td>
-                                            <td>{{ $barang->kategori->kategori }}</td>
+                                            <td>{{ !is_null($barang->kategori) ? $barang->kategori->kategori : null }}
+                                            </td>
                                             <td>{{ $barang->created_at }}</td>
                                             <td>{{ $barang->harga_dasar }}</td>
                                             <td>{{ $barang->harga_jual }}</td>
@@ -91,15 +96,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Kode Barang</label>
-                                    <input type="text"
-                                        class="form-control @error('kode_barang')
-                    is-invalid @enderror"
-                                        name="kode_barang" required>
-                                    @error('kode_barang')
-                                        <div class="invalid-feedback">
-                                            Kode barang mirip dengan kode barang yang sudah ada
-                                        </div>
-                                    @enderror
+                                    <input type="text" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Kategori Barang </label>
@@ -107,7 +104,7 @@
                                     <select class="form-control" name="id_kategori" id="id_kategori">
                                         <option value="">Pilih Kategori</option>
                                         @foreach ($list_kategori as $kategori)
-                                            <option value="{{ $ketegori }}">{{ $kategori }}
+                                            <option value="{{ $kategori->id }}">{{ $kategori->kategori }}
                                             </option>
                                         @endforeach
                                     </select>

@@ -12,6 +12,7 @@
 
     <link rel="shortcut icon" href="{{ url('/') }}/assets/images/kasir.png">
 
+
     <link href="{{ url('/') }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="{{ url('/') }}/assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="{{ url('/') }}/assets/css/style.css" rel="stylesheet" type="text/css">
@@ -28,6 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
+
 </head>
 
 
@@ -80,6 +82,7 @@
 
 
     <!-- jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="{{ url('/') }}/assets/js/jquery.min.js"></script>
     <script src="{{ url('/') }}/assets/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url('/') }}/assets/js/modernizr.min.js"></script>
