@@ -13,6 +13,8 @@ use App\Http\Controllers\transaksi\PembelianDetailController;
 use App\Http\Controllers\transaksi\PenjualanController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controller\transaksi\PenjualanDetailController;
+use App\Http\Controller\transaksi;
 use GuzzleHttp\Middleware;
 /*
 |--------------------------------------------------------------------------
@@ -82,21 +84,10 @@ Route::prefix('kasir')->group(function () {
 });
 
 //transaksi
-Route::prefix('transaksi')->group(function () {
-    Route::resource('penjualan', PenjualanController::class);
-    Route::resource('pembelian', PembelianController::class)->except('create');
-    // Route::get('/pembelian/{$id_supplier}/create', [PembelianController::class,'create']);
-    // Route::post('pembelian_detail/filter', [PembelianDetailController::class, 'filter']);
-    // Route::get('/pembelian/data', [PembelianController::class,'data']);
-    // Route::resource('pembelian_detail', PembelianDetailController::class)->except('create', 'show', 'edit');
-
-    Route::get('/pembelian/data', [PembelianController::class, 'data'])->name('admin.transaksi.pembelian.data');
-    Route::get('/pembelian/{id}/create', [PembelianController::class, 'create'])->name('admin.transaksi.pembelian.create');
-    Route::resource('/pembelian', PembelianController::class)
-        ->except('create');
-
-    Route::get('/pembelian_detail/{id}/data', [PembelianDetailController::class, 'data'])->name('admin.transaksi.pembelian_detail.data');
-    Route::get('/pembelian_detail/loadform/{diskon}/{total}', [PembelianDetailController::class, 'loadForm'])->name('admin.transaksi.pembelian_detail.load_form');
-    Route::resource('/pembelian_detail', PembelianDetailController::class)
-        ->except('create', 'show', 'edit');
+Route::prefix('transaksi')->group(function(){
+    Route::get('penjualan/index', [PenjualanController::class, 'detail']);
+    Route::get('/penjualan/index/{$id}', [PenjualanController::class, 'index']);
+    Route::get('/penjualan/index/{$id}', [PenjualanController::class, 'store']);
+    Route::post('/penjualan', [PenjualanController::class, 'storePenjualan']);
+    Route::resource('pembelian', PembelianController::class);
 });

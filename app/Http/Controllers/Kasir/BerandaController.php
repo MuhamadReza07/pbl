@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Models\Supplier;
+
 class BerandaController extends Controller
 {
     public function index(){
@@ -19,8 +20,8 @@ class BerandaController extends Controller
         
     public function showBeranda()
     {
-        return view('kasir/main')->with([
-           
-        ]);
+  
+        
+        return view('kasir/main');
     }
 }

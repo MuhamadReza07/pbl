@@ -25,12 +25,12 @@ class Barang extends ModelAuthenticate
         return Carbon::parse($this->attributes['created_at'])
             ->translatedFormat(' d F Y');
     }
-    public function pembelianDetail()
+    public function TransaksiDetail()
     {
-        return $this->hasMany(PembelianDetailController::class, 'id_pembelian_detail');
+        return $this->hasMany(TransaksiDetailController::class, 'id_pembelian_detail');
     }
-    public function penjualan()
+    public function transaksi()
     {
-        return $this->hasMany(PenjualanController::class, 'id_penjualan');
+        return $this->hasMany(TransaksiController::class, 'id_penjualan');
     }
 }

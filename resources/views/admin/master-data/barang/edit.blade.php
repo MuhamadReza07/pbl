@@ -26,7 +26,8 @@
                                 <div class="form-group">
                                     <label class="control-label">Kategori</label>
                                     <input type="text" class="form-control" name="kategori"
-                                        value="{{ $barang->kategori }}">
+                                        value="{{ !is_null($barang->kategori) ? $barang->kategori->kategori : null }}"
+                                        disabled>
                                 </div>
 
                             </div>
@@ -50,8 +51,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Stok Barang</label>
-                                        <input type="text" class="form-control" name="stok"
-                                            value="{{ $barang->stok }}">
+                                        <input type="text" class="form-control" name="stok" value="{{ $barang->stok }}">
                                     </div>
                                 </div>
                             </div>

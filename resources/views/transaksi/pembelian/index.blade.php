@@ -23,7 +23,7 @@
                                     <th>Aksi</th>
                                 </thead>
                                 <tbody>
-
+                                    @foreach()
 
                                 </tbody>
                             </table>
@@ -57,16 +57,16 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($supplier as $key => $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->nama_supplier }}</td>
-                                            <td>{{ $item->no_hp }}</td>
-                                            <td>{{ $item->alamat_supplier }}</td>
-                                            <td>
-                                                <a href="{{ url('transaksi/pembelian', $item->id) }}"
-                                                    class="btn btn-success"><i class="fa fa-check-circle"></i> Pilih</a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nama_supplier }}</td>
+                                        <td>{{ $item->no_hp }}</td>
+                                        <td>{{ $item->alamat_supplier }}</td>
+                                        <td>
+                                            <a href="{{ url('transaksi/pembelian', $item->id) }}"
+                                                class="btn btn-success"><i class="fa fa-check-circle"></i> Pilih</a>
+                                        </td>
+                                    </tr>
                                     @endforeach
 
                                 </tbody>
@@ -104,100 +104,100 @@
         </div>
     </div>
     <script>
-        let table, table1;
+    let table, table1;
 
-        $(function() {
-            table = $('.table-pembelian').DataTable({
-                processing: true,
-                autoWidth: false,
-                ajax: {
-                    url: '{{ route('admin.transaksi.pembelian.data') }}',
+    $(function() {
+        table = $('.table-pembelian').DataTable({
+            processing: true,
+            autoWidth: false,
+            ajax: {
+
+            },
+            columns: [{
+                    data: 'DT_RowIndex',
+                    searchable: false,
+                    sortable: false
                 },
-                columns: [{
-                        data: 'DT_RowIndex',
-                        searchable: false,
-                        sortable: false
-                    },
-                    {
-                        data: 'tanggal'
-                    },
-                    {
-                        data: 'supplier'
-                    },
-                    {
-                        data: 'total_item'
-                    },
-                    {
-                        data: 'total_harga'
-                    },
-                    {
-                        data: 'diskon'
-                    },
-                    {
-                        data: 'bayar'
-                    },
-                    {
-                        data: 'aksi',
-                        searchable: false,
-                        sortable: false
-                    },
-                ]
-            });
-
-            $('.table-supplier').DataTable();
-            table1 = $('.table-detail').DataTable({
-                processing: true,
-                bSort: false,
-                dom: 'Brt',
-                columns: [{
-                        data: 'DT_RowIndex',
-                        searchable: false,
-                        sortable: false
-                    },
-                    {
-                        data: 'kode_produk'
-                    },
-                    {
-                        data: 'nama_produk'
-                    },
-                    {
-                        data: 'harga_beli'
-                    },
-                    {
-                        data: 'jumlah'
-                    },
-                    {
-                        data: 'subtotal'
-                    },
-                ]
-            })
+                {
+                    data: 'tanggal'
+                },
+                {
+                    data: 'supplier'
+                },
+                {
+                    data: 'total_item'
+                },
+                {
+                    data: 'total_harga'
+                },
+                {
+                    data: 'diskon'
+                },
+                {
+                    data: 'bayar'
+                },
+                {
+                    data: 'aksi',
+                    searchable: false,
+                    sortable: false
+                },
+            ]
         });
 
-        function addForm() {
-            $('#pembelian').modal('show');
-        }
+        $('.table-supplier').DataTable();
+        table1 = $('.table-detail').DataTable({
+            processing: true,
+            bSort: false,
+            dom: 'Brt',
+            columns: [{
+                    data: 'DT_RowIndex',
+                    searchable: false,
+                    sortable: false
+                },
+                {
+                    data: 'kode_produk'
+                },
+                {
+                    data: 'nama_produk'
+                },
+                {
+                    data: 'harga_beli'
+                },
+                {
+                    data: 'jumlah'
+                },
+                {
+                    data: 'subtotal'
+                },
+            ]
+        })
+    });
 
-        function showDetail(url) {
-            $('#modal-detail').modal('show');
+    function addForm() {
+        $('#pembelian').modal('show');
+    }
 
-            table1.ajax.url(url);
-            table1.ajax.reload();
-        }
+    function showDetail(url) {
+        $('#modal-detail').modal('show');
 
-        function deleteData(url) {
-            if (confirm('Yakin ingin menghapus data terpilih?')) {
-                $.post(url, {
-                        '_token': $('[name=csrf-token]').attr('content'),
-                        '_method': 'delete'
-                    })
-                    .done((response) => {
-                        table.ajax.reload();
-                    })
-                    .fail((errors) => {
-                        alert('Tidak dapat menghapus data');
-                        return;
-                    });
-            }
+        table1.ajax.url(url);
+        table1.ajax.reload();
+    }
+
+    function deleteData(url) {
+        if (confirm('Yakin ingin menghapus data terpilih?')) {
+            $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete'
+                })
+                .done((response) => {
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    alert('Tidak dapat menghapus data');
+                    return;
+                });
         }
+    }
     </script>
     </x-module.admin>
