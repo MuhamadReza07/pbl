@@ -7,28 +7,16 @@ use App\Models\Kategori;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use Carbon\Carbon;
+
 
 class BarangController extends Controller
 {
     function index()
     {
-        $date = Carbon::now()->format('d-m-Y');
-        $now = Carbon::now();
-        $thnBulan = $now->year . $now->month;
-        $cek = Barang::count();
-        if ($cek == 0) {
-            $urut = 000001;
-            $nomor = 'PA' . $thnBulan . $urut;
-        } else {
-            $ambil = Barang::all()->last();
-            $urut = (int)substr($ambil->kode_barang, -8) + 1;
-            $nomor = 'PA' . $thnBulan . $urut;
-        }
-
+        
         $data['list_barang'] = Barang::all();
         $data['list_kategori'] = Kategori::all();
-        return view('admin.master-data.barang.index', compact('nomor'), $data);
+        return view('admin.master-data.barang.index',  $data);
     }
     function create()
     {

@@ -17,7 +17,7 @@
 
         </ul>
     </li>
-    <li class="has_sub">
+    {{-- <li class="has_sub">
         <a href="#" class="waves-effect"><i class="fa fas fa-shopping-cart"></i>
             <span> Transaksi</span> <span class="menu-arrow float-right"><i
                     class="mdi mdi-chevron-right"></i></span></a>
@@ -26,7 +26,7 @@
             <li><a href="{{ url('transaksi/pembelian') }}">Pembelian</a></li>
 
         </ul>
-    </li>
+    </li> --}}
     <li class="menu-title">Report</li>
     <li>
         <a href="{{ url('admin/laporan') }}">

@@ -11,10 +11,11 @@
 
     <li class="has_sub">
         <a href="#"><i class="fa fas fa-shopping-cart"></i>
-            <span> Transaksi</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+            <span> Transaksi</span> <span class="menu-arrow float-right"><i
+                    class="mdi mdi-chevron-right"></i></span></a>
         <ul class="list-unstyled">
-            <li><a href="{{ url('transaksi/penjualan') }}">Penjualan</a></li>
-            <li><a href="{{ url('transaksi/pembelian') }}">Pembelian</a></li>
+            <li><a href="{{url('transaksi/penjualan/index')}}">Penjualan</a></li>
+            <li><a href="{{url('transaksi/pembelian')}}">Pembelian</a></li>
 
         </ul>
     </li>

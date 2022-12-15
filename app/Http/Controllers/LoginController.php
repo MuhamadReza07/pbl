@@ -4,19 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use user;
+use App\Models\User;
 class LoginController extends Controller
 {
-    public function index()
-    {
-        // if (Auth::user()) {
-        //     if ($user->level == '1') {
-        //         return redirect()->intended('admin/beranda');
-        //     } elseif ($user->level == '2') {
-        //         return redirect()->intended('kasir/beranda/index');
-        //     }
-        //     return redirect()->intended('home');
-        // }
+    public function index(User $user)
+    {   
+        if (Auth::user()) {
+            if ($user->level == '1') {
+                return redirect()->intended('admin/beranda');
+            } elseif ($user->level == '2') {
+                return redirect()->intended('kasir/main');
+            }
+            return redirect()->intended('home');
+        }
 
         return view('login.index_login');
     }

@@ -6,7 +6,7 @@
                 <h1>Selamat Datang</h1>
                 <h3>Anda Login Sebagai Kasir</h3>
                 <br>
-                <a href="{{ url('transaksi/penjualan') }}" class="btn btn-primary ">Transaksi Baru</a>
+                <a href="{{url('transaksi/penjualan/index')}}" class="btn btn-primary ">Transaksi Baru</a>
                 <br><br><br>
             </div>
         </div>
