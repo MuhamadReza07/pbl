@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\transaksi\PembelianController;
 use App\Http\Controllers\transaksi\PembelianDetailController;
 use App\Http\Controllers\transaksi\PenjualanController;
-use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\PengaturanController;
 use App\Http\Controllers\Admin\LaporanController;
 use GuzzleHttp\Middleware;
 /*
@@ -56,10 +56,8 @@ Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 //admin
 Route::prefix('admin')->group(function () {
     //pengaturan
-    Route::resource('setting', SettingController::class);
-    Route::get('/setting', [SettingController::class, 'index']);
-    Route::get('/setting/first', [SettingController::class, 'show']);
-    Route::post('/setting', [SettingController::class, 'update']);
+    Route::resource('pengaturan', PengaturanController::class,);
+
     //user
     Route::get('user/edit/{$id}', [UserController::class, 'edit']);
     Route::resource('user', UserController::class);

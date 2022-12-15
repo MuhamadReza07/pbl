@@ -40,7 +40,7 @@
                     class="badge badge-success badge-pill float-right"></span></span></a>
     </li>
     <li>
-        <a href="{{ url('admin/setting') }}">
+        <a href="{{ url('admin/pengaturan') }}">
             <i class="fa fa-cogs"></i> <span> Pengaturan <span
                     class="badge badge-success badge-pill float-right"></span></span></a>
     </li>
