@@ -40,9 +40,9 @@ class PengaturanController extends Controller
     }
     function update(Pengaturan $pengaturan)
     {
-        $pengaturan->nama_perusahaan = request('nama_perusahaan');
-        $pengaturan->telepon = request('telepon');
-        $pengaturan->alamat = request('alamat');
+        if (request('nama_perusahaan')) $pengaturan->nama_perusahaan = request('nama_perusahaan');
+        if (request('telepon')) $pengaturan->telepon = request('telepon');
+        if (request('alamat')) $pengaturan->alamat = request('alamat');
         $pengaturan->save();
         Alert::info('Update', 'Data Toko Berhasil Diupdate');
         return redirect('admin/pengaturan')->with('success', 'Data toko Berhasil Diupdate');

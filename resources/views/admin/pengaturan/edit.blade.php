@@ -14,7 +14,7 @@
                              @method('PUT')
                              <div class="form-group">
                                  <label class="control-label">Nama Toko</label>
-                                 <input type="text" class="form-control" name="nama_toko"
+                                 <input type="text" class="form-control" name="nama_perusahaan"
                                      value="{{ $pengaturan->nama_perusahaan }}">
                              </div>
                              <div class="form-group">
