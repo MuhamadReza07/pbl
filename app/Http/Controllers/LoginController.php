@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+
 class LoginController extends Controller
 {
     public function index(User $user)
-    {   
-        if (Auth::user()) {
-            if ($user->level == '1') {
-                return redirect()->intended('admin/beranda');
-            } elseif ($user->level == '2') {
-                return redirect()->intended('kasir/main');
-            }
-            return redirect()->intended('home');
-        }
+    {
+        // if (Auth::user()) {
+        //     if ($user->level == '1') {
+        //         return redirect()->intended('admin/beranda');
+        //     } elseif ($user->level == '2') {
+        //         return redirect()->intended('kasir/main');
+        //     }
+        //     return redirect()->intended('home');
+        // }
 
         return view('login.index_login');
     }
@@ -44,7 +45,7 @@ class LoginController extends Controller
                 return redirect()->intended('kasir/main');
             }
 
-           
+
 
             return redirect()->intended('/');
         }

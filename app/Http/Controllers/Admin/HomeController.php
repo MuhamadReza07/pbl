@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
 use App\Models\Supplier;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -14,18 +15,18 @@ class HomeController extends Controller
     {
         $totalSupplier = Supplier::count();
         $totalBarang = Barang::count();
+        $totalUser = User::count();
 
 
-        
-        return view('admin/beranda', compact('totalSupplier','totalBarang'))->with([
+
+
+        return view('admin/beranda', compact('totalSupplier', 'totalBarang', 'totalUser'))->with([
             'user' => Auth::user()
         ]);
     }
 
     public function showBeranda()
     {
-        return view('kasir/main')->with([
-           
-        ]);
-    } 
+        return view('kasir/main')->with([]);
+    }
 }

@@ -25,28 +25,18 @@
 
             </div>
         </div>
-        {{-- <div class="col-xl-3 col-md-6">
-            <div class="card mini-stat m-b-30">
-                <div class="p-3 bg-primary text-white">
-                    <div class="mini-stat-icon">
-                        <i class="mdi mdi-tag-text-outline float-right mb-0"></i>
-                    </div>
-                    <h6 class="text-uppercase mb-0">Average Price</h6>
-                    <h1></h1>
-                </div>
-                
-            </div>
-        </div>
         <div class="col-xl-3 col-md-6">
             <div class="card mini-stat m-b-30">
                 <div class="p-3 bg-primary text-white">
                     <div class="mini-stat-icon">
-                        <i class="mdi mdi-cart-outline float-right mb-0"></i>
+                        <i class="mdi mdi-account-multiple-plus float-right mb-0"></i>
                     </div>
-                    <h6 class="text-uppercase mb-0">Total Sales</h6>
+                    <h6 class="text-uppercase mb-0">User</h6>
+                    <h1>{{ $totalUser }}</h1>
                 </div>
-                
+
             </div>
-        </div> --}}
+        </div>
+
     </div>
     </x-modu.admin>

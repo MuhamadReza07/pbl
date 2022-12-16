@@ -59,6 +59,7 @@ Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 Route::prefix('admin')->group(function () {
     //pengaturan
     Route::resource('pengaturan', PengaturanController::class,);
+    Route::get('pengaturan/edit/{$id}', [PengaturanController::class, 'edit']);
 
     //user
     Route::get('user/edit/{$id}', [UserController::class, 'edit']);
@@ -82,7 +83,7 @@ Route::prefix('kasir')->group(function () {
 });
 
 //transaksi
-Route::prefix('transaksi')->group(function(){
+Route::prefix('transaksi')->group(function () {
     Route::get('penjualan/index', [PenjualanController::class, 'detail']);
     Route::get('/penjualan/index/{$id}', [PenjualanController::class, 'index']);
     Route::get('/penjualan/index/{$id}', [PenjualanController::class, 'store']);

@@ -1,4 +1,3 @@
-{{-- 
 <x-module.admin menu="menu.admin">
     <div class="container">
         <div class="row">
@@ -112,4 +111,4 @@
             </div>
         </div>
     </div>
-</x-module.admin> --}}
+</x-module.admin>

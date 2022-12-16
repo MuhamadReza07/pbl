@@ -12,7 +12,7 @@ class PengaturanController extends Controller
     public function index()
     {
         $data['list_pengaturan'] = Pengaturan::all();
-        return view('admin.setting.index', $data);
+        return view('admin.pengaturan.index', $data);
     }
 
 
@@ -27,18 +27,18 @@ class PengaturanController extends Controller
         return redirect('admin/pengaturan')->with('success', 'Data toko Berhasil Ditambahkan');
     }
 
-    public function edit(Pengaturan $pengaturan)
+    function edit(Pengaturan $pengaturan)
     {
         $data['pengaturan'] = $pengaturan;
         return view('admin/pengaturan/edit', $data);
     }
 
-    public function show(Pengaturan $pengaturan)
+    function show(Pengaturan $pengaturan)
     {
         $data['pengaturan'] = $pengaturan;
         return view('admin/pengaturan', $data);
     }
-    public function update(Pengaturan $pengaturan)
+    function update(Pengaturan $pengaturan)
     {
         $pengaturan->nama_perusahaan = request('nama_perusahaan');
         $pengaturan->telepon = request('telepon');
