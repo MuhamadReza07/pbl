@@ -22,7 +22,7 @@
                                 <input type="text" class="form-control" name="kode_barang"
                                     value="{{ $barang->kode_barang }}">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <div class="form-group">
                                     <label class="control-label">Kategori</label>
                                     <input type="text" class="form-control" name="kategori"
@@ -30,7 +30,7 @@
                                         disabled>
                                 </div>
 
-                            </div>
+                            </div> --}}
 
 
                             <div class="row">
@@ -51,7 +51,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="control-label">Stok Barang</label>
-                                        <input type="text" class="form-control" name="stok" value="{{ $barang->stok }}">
+                                        <input type="text" class="form-control" name="stok"
+                                            value="{{ $barang->stok }}">
                                     </div>
                                 </div>
                             </div>

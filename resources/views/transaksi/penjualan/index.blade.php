@@ -28,7 +28,8 @@
                                     <span>
                                         <strong>No.Nota</strong>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="nomor invoice" disabled>
+                                    <input type="text" class="form-control" placeholder="nomor invoice"
+                                        value="" disabled>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +94,7 @@
                                         <td>{{ $penjualan->total_item }}</td>
                                         <td>@currency($penjualan->total_harga) </td>
                                         <td>@include('components.template.utils.delete', [
-                                            'url' => url('admin/transaksi/penjualan', $penjualan->id_barang),
+                                            'url' => url('transaksi/penjualan', $penjualan->id_barang),
                                         ])</td>
 
                                     </tr>
@@ -103,17 +104,44 @@
                             <tfoot>
                                 @foreach ($list_penjual as $penjual)
                                     <tr>
+
+
                                         <th colspan="5">
                                             <h5 class="text-end ">Total</h5>
 
                                         </th>
-                                        <th colspan="6">
+                                        <th colspan="2">
 
 
                                             <input type="text" name="totalval" class="form-control" id="total"
                                                 value="@currency($penjual->sum('total_harga'))" onchange="updateDue()" disabled>
                                         </th>
+
                                     </tr>
+                                    {{-- <tr>
+                                        <th colspan="5">
+                                            <h5 class="text-end ">Bayar</h5>
+
+                                        </th>
+                                        <th colspan="2">
+
+
+                                            <input type="text" name="bayar" class="form-control" id="bayar"
+                                                value="@currency($penjual->bayar)">
+                                        </th>
+                                    </tr> --}}
+                                    {{-- <tr>
+                                        <th colspan="5">
+                                            <h5 class="text-end ">Kembali</h5>
+
+                                        </th>
+                                        <th colspan="2">
+
+
+                                            <input type="text" name="kembali" class="form-control" id="kembali"
+                                                value="@currency($penjual->diterima)">
+                                        </th>
+                                    </tr> --}}
                                 @endforeach
                             </tfoot>
                         </table>
@@ -164,8 +192,11 @@
                             </div>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary btn-sm btn-flat pull-right btn-simpan"><i
-                                    class="fa fa-floppy-o"></i> Simpan Transaksi</button>
+                            <form action="{{ url('transaksi/penjualan') }}" method="POST">
+                                <button type="submit" class="btn btn-primary btn-sm btn-flat pull-right btn-simpan"><i
+                                        class="fa fa-floppy-o"></i> Simpan Transaksi</button>
+                            </form>
+
                         </div>
 
                     </div>
@@ -234,7 +265,7 @@
         </div>
 
     </div> --}}
- 
+
     <script>
         function updateDue() {
 
@@ -243,7 +274,8 @@
 
             // to make sure that they are numbers
             if (!total) {
-                total = 0;
+                total = {{ $penjual->sum('total_harga') }};
+
             }
             if (!val2) {
                 val2 = 0;

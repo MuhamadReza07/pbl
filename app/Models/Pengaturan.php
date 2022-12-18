@@ -10,5 +10,7 @@ class Pengaturan extends Model
     use HasFactory;
     protected $table = 'pengaturan';
     protected $primaryKey = "id";
+    public $timestamp = false;
+    const UPDATED_AT = null;
     protected $guarded = [];
 }

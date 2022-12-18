@@ -12,13 +12,13 @@ class LoginController extends Controller
     {
         // if (Auth::user()) {
         //     if ($user->level == '1') {
-        //         return redirect()->intended('admin/beranda');
+        //         return redirect()->intended('admin/beranda')->with('success', 'Login Berhasil');
         //     } elseif ($user->level == '2') {
-        //         return redirect()->intended('kasir/main');
+        //         return redirect()->intended('kasir/main')->with('success', 'Login Berhasil');
         //     }
         //     return redirect()->intended('home');
         // }
-
+       
         return view('login.index_login');
     }
 
@@ -40,19 +40,19 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
             if ($user->level == '1') {
-                return redirect()->intended('admin/beranda');
+                return redirect()->intended('admin/beranda')->with('success', 'Login Berhasil');
             } elseif ($user->level == '2') {
-                return redirect()->intended('kasir/main');
+                return redirect()->intended('kasir/main')->with('success', 'Login Berhasil');;
             }
-
+          
 
 
             return redirect()->intended('/');
         }
 
-        return back()->withErrors([
-            'email' => 'Maaf email atau password anda salah'
-        ])->onlyInput('email');
+        return back()->with('danger', 'Login Gagal,Silahkan cek email dan password Anda');
+        
+      
     }
 
     public function logout(Request $request)

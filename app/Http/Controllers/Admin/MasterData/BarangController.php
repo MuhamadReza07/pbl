@@ -66,9 +66,9 @@ class BarangController extends Controller
         $barang->kode_barang = request('kode_barang');
         $barang->harga_dasar = request('harga_dasar');
         $barang->harga_jual = request('harga_jual');
-        $barang->id_kategori = request('id_kategori');
+    
         $barang->stok = request('stok');
-        $barang->kategori = request('kategori');
+     
         $barang->save();
         Alert::info('Update', 'Data Berhasil Diupdate');
         return redirect('admin/master-data/barang')->with('success', 'Data Berhasil Diupdate');

@@ -28,6 +28,7 @@
     <div class="accountbg">
 
         <div class="content-center">
+
             <div class="content-desc-center">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -47,30 +48,35 @@
                                         <form class="form-horizontal m-t-20" action="{{ url('login/proses') }}"
                                             method="post">
                                             @csrf
+                                            <x-template.utils.notif />
+                                            <br>
                                             <div class="form-group row">
                                                 <div class="col-12">
-                                                    <input class="form-control   @error('email')
+                                                    <input
+                                                        class="form-control   @error('email')
                                                     is-invalid
-                                                @enderror" type="email" placeholder="Email" name="email" require>
+                                                @enderror"
+                                                        type="email" placeholder="Email" name="email" require>
                                                 </div>
                                                 @error('email')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
                                                 @enderror
                                             </div>
 
                                             <div class="form-group row">
                                                 <div class="col-12">
-                                                    <input class="form-control  @error('password')
+                                                    <input
+                                                        class="form-control  @error('password')
                                                     is-invalid
-                                                @enderror" type="password" placeholder="Password" name="password"
-                                                        require>
+                                                @enderror"
+                                                        type="password" placeholder="Password" name="password" require>
                                                 </div>
                                                 @error('password')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
                                                 @enderror
                                             </div>
 
