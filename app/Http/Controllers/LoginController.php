@@ -10,14 +10,14 @@ class LoginController extends Controller
 {
     public function index(User $user)
     {
-        // if (Auth::user()) {
-        //     if ($user->level == '1') {
-        //         return redirect()->intended('admin/beranda')->with('success', 'Login Berhasil');
-        //     } elseif ($user->level == '2') {
-        //         return redirect()->intended('kasir/main')->with('success', 'Login Berhasil');
-        //     }
-        //     return redirect()->intended('home');
-        // }
+        if (Auth::user()) {
+            if ($user->level == '1') {
+                return redirect()->intended('admin/beranda')->with('success', 'Login Berhasil');
+            } elseif ($user->level == '2') {
+                return redirect()->intended('kasir/main')->with('success', 'Login Berhasil');
+            }
+            return redirect()->intended('home');
+        }
        
         return view('login.index_login');
     }

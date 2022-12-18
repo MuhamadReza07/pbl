@@ -89,4 +89,5 @@ Route::prefix('transaksi')->group(function () {
     Route::get('/penjualan/index/{$id}', [PenjualanController::class, 'store']);
     Route::post('/penjualan', [PenjualanController::class, 'storePenjualan']);
     Route::resource('pembelian', PembelianController::class);
+  
 });
